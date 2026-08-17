@@ -15,11 +15,13 @@
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
 		"test:unit": "vitest",
-		"test": "npm run test:unit -- --run"
+		"test": "npm run test:unit -- --run && npm run test:e2e",
+		"test:e2e": "playwright install && playwright test"
 	},
 	"devDependencies": {
 		"@chromatic-com/storybook": "latest",
 		"@eslint/js": "^10.0.1",
+		"@playwright/test": "^1.60.0",
 		"@skeletonlabs/skeleton": "^5.0.0",
 		"@skeletonlabs/skeleton-svelte": "^5.0.0",
 		"@storybook/addon-a11y": "^10.5.8",
