@@ -27,7 +27,7 @@
 		<div class="bottom-nav__inner">
 			{#each navigation as item (item.href)}
 				{@const href = resolve(item.href)}
-				<a class:active={page.url.pathname === href} href={href}></a>
+				<a class:active={page.url.pathname === href} href={href}>
 				<!-- <a class:active={page.url.pathname === href || (item.href !== '/' && page.url.pathname.startsWith(href + '/'))} href={href}> -->
 					<span class="nav-icon" aria-hidden="true">
 						{#if item.icon === 'home'}
