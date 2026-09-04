@@ -3,3 +3,114 @@
 @import '@skeletonlabs/skeleton'; 
 @import '@skeletonlabs/skeleton-svelte'; 
 @import '@skeletonlabs/skeleton/themes/cerberus';
+
+:root {
+	--app-ink: #17211f;
+	--app-muted: #71807b;
+	--app-accent: #d65a3a;
+	--app-paper: #f7f8f4;
+	--app-line: rgba(23, 33, 31, 0.1);
+}
+
+html {
+	background: var(--app-paper);
+}
+
+body {
+	margin: 0;
+	color: var(--app-ink);
+	background: var(--app-paper);
+	font-family: Georgia, 'Times New Roman', serif;
+}
+
+.app-shell {
+	min-height: 100dvh;
+}
+
+.page-content {
+	min-height: 100dvh;
+	padding: 1.25rem 1rem 7rem;
+}
+
+.bottom-nav {
+	position: fixed;
+	z-index: 20;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 0.5rem 0.75rem calc(0.5rem + env(safe-area-inset-bottom));
+	border-top: 1px solid var(--app-line);
+	background: color-mix(in srgb, var(--app-paper) 86%, transparent);
+	backdrop-filter: blur(20px) saturate(140%);
+}
+
+.bottom-nav__inner {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	max-width: 34rem;
+	margin: 0 auto;
+}
+
+.bottom-nav a {
+	display: flex;
+	min-width: 0;
+	align-items: center;
+	justify-content: center;
+	gap: 0.2rem;
+	padding: 0.4rem 0.2rem;
+	border-radius: 0.8rem;
+	color: var(--app-muted);
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	font-size: 0.68rem;
+	font-weight: 600;
+	text-decoration: none;
+	transition: color 160ms ease, background 160ms ease;
+}
+
+.bottom-nav a:hover,
+.bottom-nav a.active {
+	color: var(--app-accent);
+	background: color-mix(in srgb, var(--app-accent) 10%, transparent);
+}
+
+.nav-icon {
+	display: grid;
+	width: 1.35rem;
+	height: 1.35rem;
+	place-items: center;
+}
+
+.nav-icon svg {
+	width: 1.15rem;
+	height: 1.15rem;
+	fill: none;
+	stroke: currentColor;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 1.8;
+}
+
+.bottom-nav a.active .nav-icon svg:first-child {
+	fill: color-mix(in srgb, var(--app-accent) 16%, transparent);
+}
+
+@media (min-width: 48rem) {
+	.page-content {
+		max-width: 72rem;
+		margin: 0 auto;
+		padding: 2rem 2rem;
+	}
+
+	.bottom-nav {
+		padding: 0.65rem 1.5rem;
+	}
+
+	.bottom-nav__inner {
+		max-width: 72rem;
+	}
+
+	.bottom-nav a {
+		padding: 0.55rem 1rem;
+		font-size: 0.75rem;
+	}
+}
